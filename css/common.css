@@ -1,0 +1,205 @@
+/* ===== Общие стили ===== */
+:root {
+  --wine: #7a1f3d;
+  --wine-deep: #4f1028;
+  --rose: #c8456b;
+  --rose-light: #e98aa6;
+  --blush: #f6e3e6;
+  --paper: #fdf8f4;
+  --paper-2: #f8eee9;
+  --gold: #b8935a;
+  --text: #3d2a30;
+  --muted: #866a72;
+  --line: rgba(122, 31, 61, 0.12);
+  --shadow-sm: 0 2px 8px rgba(79, 16, 40, 0.06);
+  --shadow: 0 18px 40px -18px rgba(79, 16, 40, 0.28);
+  --shadow-lg: 0 30px 60px -20px rgba(79, 16, 40, 0.38);
+  --radius: 22px;
+  --serif: "Cormorant Garamond", "Georgia", serif;
+  --sans: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(233, 138, 166, 0.14), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(184, 147, 90, 0.08), transparent 60%),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { flex: 1; }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+img { max-width: 100%; }
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Шапка ===== */
+.site-header {
+  background: rgba(253, 248, 244, 0.82);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.logo {
+  font-family: var(--serif);
+  color: var(--wine);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.3s;
+}
+
+.logo:hover { color: var(--rose); }
+
+.nav {
+  display: flex;
+  gap: 4px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+  background: var(--blush);
+  color: var(--wine);
+}
+
+.nav a.active {
+  background: var(--wine);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== Кнопки ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--wine);
+  background-image: linear-gradient(135deg, var(--rose) 0%, var(--wine) 100%);
+  color: #fff;
+  padding: 15px 34px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 28px -10px rgba(122, 31, 61, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -10px rgba(122, 31, 61, 0.7);
+  filter: brightness(1.06);
+}
+
+.btn-primary:focus-visible,
+.nav a:focus-visible,
+.btn-buy:focus-visible {
+  outline: 3px solid var(--rose-light);
+  outline-offset: 3px;
+}
+
+/* ===== Подвал ===== */
+.site-footer {
+  background: var(--wine-deep);
+  background-image: radial-gradient(600px 200px at 50% 0%, rgba(200, 69, 107, 0.35), transparent 70%);
+  color: #f3d3dc;
+  text-align: center;
+  padding: 34px 0;
+  margin-top: 80px;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Заголовки страниц ===== */
+.page-title {
+  padding: 80px 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+.page-title::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin: 0 auto 22px;
+  background: var(--gold);
+}
+
+.page-title h1 {
+  color: var(--wine-deep);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  margin-bottom: 14px;
+}
+
+.page-title p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .header-inner { justify-content: center; }
+  .nav a { padding: 7px 14px; font-size: 0.9rem; }
+  .page-title { padding: 56px 0 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
